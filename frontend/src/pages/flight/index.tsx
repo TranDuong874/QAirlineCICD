@@ -1,14 +1,14 @@
-import { Outlet, useLocation } from "react-router-dom";
-import { Box } from "@mui/material";
+import {Outlet, useLocation} from "react-router-dom";
+import {Box} from "@mui/material";
 
 function Flight() {
-  const location = useLocation();
+    const location = useLocation();
 
-  if (location.pathname !== "/flight") {
-    return <Outlet />;
-  }
+    if (location.pathname !== "/flight") {
+        return <Outlet/>;
+    }
 
-  return <Box></Box>;
+    return <Box></Box>;
 }
 
 export default Flight;

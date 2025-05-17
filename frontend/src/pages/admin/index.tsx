@@ -9,7 +9,6 @@ import {
   DialogContent,
   DialogActions,
   TextField,
-  Autocomplete,
   Tabs,
   Tab,
 } from "@mui/material";
@@ -18,11 +17,9 @@ import { createFlight } from "../../hooks/flight-hook";
 import { fetchAirplanes } from "../../hooks/flight-hook";
 import DatePicker from "react-datepicker";
 import { fetchAirport } from "hooks/airport-hook";
-import { createAirplane } from "hooks/airplane-hook";
 import AirplaneList from "../../components/admin/airplane-list";
 import AirportList from "../../components/admin/airport-list";
 import { useNavigate } from "react-router-dom";
-import { createAdvert } from "hooks/advert-hook";
 import { toast } from "react-toastify";
 
 const AdminPage = () => {
@@ -224,12 +221,6 @@ const AdminPage = () => {
   const handleSaveAirplane = () => {
     console.log("New Airplane Data:", newAirplane);
     try {
-      const payload = {
-        airplane_model_id: newAirplane.airplane_model_id,
-        registration_number: newAirplane.registration_number,
-        flight_seats: newAirplane.flight_seats,
-      };
-      const createdAirplane = createAirplane(payload);
       toast.dismiss();
       toast.success("New airplane added successfully!");
     } catch (error) {
@@ -242,11 +233,6 @@ const AdminPage = () => {
     console.log("New News Data:", newNews);
     try {
       console.log("image url", newNews.imageFile);
-      const createdNews = await createAdvert({
-        fileUpload: newNews.imageFile,
-        advertName: newNews.title,
-        text: newNews.content,
-      });
 
       toast.dismiss();
       toast.success("New news item added successfully!");

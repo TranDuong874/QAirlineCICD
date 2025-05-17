@@ -4,7 +4,6 @@ import Footer from "components/home-page/Footer";
 import { useNavigate } from "react-router-dom";
 import { ArrowBack, ArrowForward } from "@mui/icons-material";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { getAdverts } from "hooks/advert-hook";
 
 const readMoreStyle = {
@@ -54,7 +53,6 @@ const PAGE_SIZE = 5;
 
 const NewsList = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
   const [newsItems, setNewsItems] = useState([]);
 

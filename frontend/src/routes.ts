@@ -15,72 +15,72 @@ import New from "pages/news/new";
 import AdminStatistical from "pages/admin/statistical";
 
 const routes = [
-  {
-    path: "/admin",
-    component: AdminAuthWrapper,
-    routes: [
-      {
+    {
+        path: "/admin",
+        component: AdminAuthWrapper,
+        routes: [
+            {
+                path: "",
+                component: AdminPage,
+            },
+            {
+                path: "statistical",
+                component: AdminStatistical,
+            },
+        ],
+    },
+    {
+        path: "/admin/login",
+        component: AdminLogin,
+    },
+    {
         path: "",
-        component: AdminPage,
-      },
-      {
-        path: "statistical",
-        component: AdminStatistical,
-      },
-    ],
-  },
-  {
-    path: "/admin/login",
-    component: AdminLogin,
-  },
-  {
-    path: "",
-    component: HomePage,
-  },
-  {
-    path: "*",
-    component: NoFoundPage,
-  },
-  {
-    path: "/flight",
-    component: Flight,
-    routes: [
-      {
-        path: "list",
-        component: FlightList,
-      },
-      {
-        path: "seat",
-        component: FlightSeat,
-      },
-      {
-        path: "detail",
-        component: FlightDetail,
-      },
-      {
-        path: "payment",
-        component: FlightPayment,
-      },
-      {
-        path: "booking",
-        component: FlightBooking,
-      },
-    ],
-  },
-  {
-    path: "/news",
-    component: News,
-    routes: [
-      {
-        path: "list",
-        component: NewsList,
-      },
-      {
-        path: "new/:advert_id",
-        component: New,
-      },
-    ],
-  },
+        component: HomePage,
+    },
+    {
+        path: "*",
+        component: NoFoundPage,
+    },
+    {
+        path: "/flight",
+        component: Flight,
+        routes: [
+            {
+                path: "list",
+                component: FlightList,
+            },
+            {
+                path: "seat",
+                component: FlightSeat,
+            },
+            {
+                path: "detail",
+                component: FlightDetail,
+            },
+            {
+                path: "payment",
+                component: FlightPayment,
+            },
+            {
+                path: "booking",
+                component: FlightBooking,
+            },
+        ],
+    },
+    {
+        path: "/news",
+        component: News,
+        routes: [
+            {
+                path: "list",
+                component: NewsList,
+            },
+            {
+                path: "new/:advert_id",
+                component: New,
+            },
+        ],
+    },
 ];
 
 export default routes;

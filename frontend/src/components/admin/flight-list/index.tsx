@@ -8,7 +8,6 @@ import {
   TableRow,
   Paper,
   Button,
-  Typography,
   Dialog,
   DialogTitle,
   DialogContent,
@@ -20,7 +19,7 @@ import {
 import { useState, useEffect } from "react";
 import { fetchFlights, updateFlight } from "hooks/flight-hook";
 import { getPassengerInFlight } from "hooks/passenger-hook";
-import { Passenger, NewPassenger } from "types/passenger";
+import { NewPassenger } from "types/passenger";
 import { toast } from "react-toastify";
 
 interface Flight {
@@ -62,7 +61,7 @@ const FlightList = () => {
   const [selectedPassengers, setSelectedPassengers] = useState<NewPassenger[]>(
     []
   );
-  const [error, setError] = useState<string | null>(null);
+  const [setError] = useState<string | null>(null);
   const sortFlightsByID = (flights: Flight[]) => {
     return [...flights].sort((a, b) => a.flight_id - b.flight_id);
   };
@@ -72,7 +71,6 @@ const FlightList = () => {
         const flights = await fetchFlights();
         setFlightData(flights);
       } catch (err) {
-        setError("Failed to fetch flights");
       }
     };
 

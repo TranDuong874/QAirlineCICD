@@ -53,87 +53,6 @@ type Flight = {
   passengers: Passenger[];
 };
 
-const mockFlightData = [
-  {
-    id: 1,
-    class: "Economy",
-    cancelled: false,
-    flightNumber: "QA001",
-    departureTime: "10:15",
-    arrivalTime: "13:10",
-    departure_city: "San Francisco",
-    departure_airport: "San Francisco International Airport",
-    arrival_city: "Miami",
-    arrival_airport: "Miami International Airport",
-    flightDate: "Sunday, 15 December",
-    duration: "4 hours 55 minutes",
-    status: "Landed",
-    payment_status: "Pending",
-    passengers: [
-      {
-        booking_id: "8F8407",
-        passenger_id: 1,
-        passport_number: "X12345678",
-        gender: "Male",
-        first_name: "John",
-        nationality: "USA",
-        seat_row: 12,
-        citizen_id: "001204023599",
-        phone_number: "+1 555 789 1234",
-        last_name: "Doe",
-        date_of_birth: "1990-05-10",
-        seat_col: "A",
-      },
-      {
-        booking_id: "8F8407",
-        passenger_id: 2,
-        passport_number: "X87654321",
-        gender: "Female",
-        first_name: "Jane",
-        nationality: "USA",
-        seat_row: 12,
-        citizen_id: "001204023600",
-        phone_number: "+1 555 123 4567",
-        last_name: "Doe",
-        date_of_birth: "1992-03-15",
-        seat_col: "B",
-      },
-    ],
-  },
-  {
-    id: 2,
-    class: "Business",
-    cancelled: false,
-    flightNumber: "DL145",
-    departureTime: "08:30",
-    arrivalTime: "12:45",
-    departure_city: "New York",
-    departure_airport: "John F. Kennedy International Airport",
-    arrival_city: "London",
-    arrival_airport: "Heathrow Airport",
-    flightDate: "Monday, 16 December",
-    duration: "6 hours 15 minutes",
-    status: "Scheduled",
-    payment_status: "Paid",
-    passengers: [
-      {
-        booking_id: "B145X1",
-        passenger_id: 1,
-        passport_number: "Y98765432",
-        gender: "Male",
-        first_name: "James",
-        nationality: "UK",
-        seat_row: 5,
-        citizen_id: "002589743210",
-        phone_number: "+44 20 7946 0958",
-        last_name: "Smith",
-        date_of_birth: "1985-11-21",
-        seat_col: "A",
-      },
-    ],
-  },
-];
-
 const FlightBooking = () => {
   const [openDialog, setOpenDialog] = useState(false);
 
@@ -537,6 +456,7 @@ const FlightBooking = () => {
                             src="/logo3.png"
                             height="196px"
                             width="auto"
+                            alt=""
                           ></img>
                         </Box>
                       </Box>
@@ -656,7 +576,7 @@ const FlightBooking = () => {
           </Button>
         </DialogActions>
       </Dialog>
-    </Box >
+    </Box>
   );
 };
 

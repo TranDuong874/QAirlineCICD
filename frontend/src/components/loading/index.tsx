@@ -1,25 +1,25 @@
-import { Box } from "@mui/material";
+import {Box} from "@mui/material";
 
 const Loading = () => {
-  return (
-    <Box>
-      <div>
-        <div id="preloader">
-          <div className="loader">
-            <div className="plane">
-              <img
-                src="https://zupimages.net/up/19/34/4820.gif"
-                className="plane-img"
-                alt="Spinning"
-              />
-            </div>
-            <div className="earth-wrapper">
-              <div className="earth"></div>
-            </div>
-          </div>
-        </div>
-        <style>
-          {`
+    return (
+        <Box>
+            <div>
+                <div id="preloader">
+                    <div className="loader">
+                        <div className="plane">
+                            <img
+                                src="https://zupimages.net/up/19/34/4820.gif"
+                                className="plane-img"
+                                alt="Spinning"
+                            />
+                        </div>
+                        <div className="earth-wrapper">
+                            <div className="earth"></div>
+                        </div>
+                    </div>
+                </div>
+                <style>
+                    {`
       #preloader {
         position: fixed;
         width: 100%;
@@ -96,10 +96,10 @@ const Loading = () => {
         }
       }
     `}
-        </style>
-      </div>
-    </Box>
-  );
+                </style>
+            </div>
+        </Box>
+    );
 };
 
 export default Loading;

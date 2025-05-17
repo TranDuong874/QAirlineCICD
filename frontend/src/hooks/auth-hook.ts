@@ -1,11 +1,9 @@
-import { toast } from "react-toastify";
-import { useEffect, useMemo, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import axios from "./axios-config";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 export const useAuth = () => {
-  const [isLogin, setIsLogin] = useState<boolean | null>(null);
+  const [isLogin] = useState<boolean | null>(null);
 
   //   useEffect(() => {
   //     setIsLogin(!!authorizationUtil.getAuthorization());

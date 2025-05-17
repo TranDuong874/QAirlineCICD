@@ -133,6 +133,7 @@ const Achievement = () => {
       <Box sx={{ flex: "1" }} bgcolor="white">
         <img
           src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/images/achievement-image.png"
+          alt="Achievement"
           style={{
             objectFit: "cover",
             objectPosition: "right",

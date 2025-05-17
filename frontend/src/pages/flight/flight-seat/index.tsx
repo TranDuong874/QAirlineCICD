@@ -55,7 +55,7 @@ const FlightSeat = () => {
     };
 
     fetchSeats();
-  }, []);
+  }, [getPayload]);
 
   // Fetch flight class price
   useEffect(() => {
@@ -84,7 +84,7 @@ const FlightSeat = () => {
     };
 
     fetchPrices();
-  }, []);
+  }, [getPayload]);
 
   // Generate letters dynamically based on the number of columns in the first row of the first seat class
   const [selectedClass, setSelectedClass] = useState("Economy");
@@ -177,7 +177,7 @@ const FlightSeat = () => {
         }
         return acc;
       }, {} as PriceSummary);
-  }, [seats]);
+  }, [seats, flightPrices]);
 
   const handleNext = () => {
     setFlightClass(selectedClass);

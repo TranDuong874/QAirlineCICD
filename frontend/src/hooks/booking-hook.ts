@@ -124,5 +124,6 @@ export async function cancelBooking(booking_id: string) {
     throw error;
   }
 }
+
 export default useBookingStore;
 

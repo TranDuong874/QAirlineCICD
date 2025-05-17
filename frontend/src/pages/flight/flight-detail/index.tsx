@@ -33,12 +33,12 @@ const FlightDetail = () => {
     );
   };
   const isValidCitizenID = (citizenId: string) => {
-    if (citizenId == "") return true;
+    if (citizenId === "") return true;
     const citizenIdRegex = /^\d{9,16}$/; // Allows 9 to 16 digits.
     return citizenIdRegex.test(citizenId);
   };
   const isValidPassportNumber = (passportNumber: string) => {
-    if (passportNumber == "") return true;
+    if (passportNumber === "") return true;
     const passportRegex = /^[A-Za-z0-9]{6,12}$/; // Alphanumeric, 6–12 characters.
     return passportRegex.test(passportNumber);
   };

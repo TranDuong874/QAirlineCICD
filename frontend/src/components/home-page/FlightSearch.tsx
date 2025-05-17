@@ -14,13 +14,12 @@ import {
   MenuItem,
 } from "@mui/material";
 import DatePicker from "react-datepicker";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import "react-datepicker/dist/react-datepicker.css";
 import "./css/DatePickerStyles.css";
 import "./css/test.css";
-import { Flight } from "types/flight";
 import { useFlightSearchStore } from "hooks/flight-search-hook";
 import { fetchAirport } from "hooks/airport-hook";
 import { toast } from "react-toastify";
@@ -65,18 +64,9 @@ const FlightSearch: React.FC = () => {
     setIsRoundTrip,
     setTripType,
     setFlights,
-    loading,
     setLoading,
   } = useFlightSearchStore();
 
-  const options = airports.map((airport) => ({
-    value: airport.city,
-    label: `${airport.city} (${airport.airport_code})`,
-  }));
-
-  const handleChange = (selectedOption) => {
-    setDepartureCity(selectedOption ? selectedOption.value : "");
-  };
 
   useEffect(() => {
     if (tripType === "roundtrip") {
@@ -84,7 +74,7 @@ const FlightSearch: React.FC = () => {
     } else {
       setShowReturnDate(false);
     }
-  }, [tripType]);
+  }, [tripType, setShowReturnDate]);
 
   const handleSearch = async () => {
     setLoading(true);

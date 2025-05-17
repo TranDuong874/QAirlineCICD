@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import Header from "components/home-page/Header";
 import FlightSearch from "components/home-page/FlightSearch";
 import FilterSearch from "components/flight/flight-list/filter-search";

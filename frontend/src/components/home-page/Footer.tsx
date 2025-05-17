@@ -176,7 +176,9 @@ const Footer = () => {
                 },
               }}
             >
-              <img src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/icons/instagram.png" />
+              <img
+                src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/icons/instagram.png" alt="" />
+              alt="Instagram"
             </Button>
             <Button
               sx={{
@@ -194,7 +196,8 @@ const Footer = () => {
                 },
               }}
             >
-              <img src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/icons/facebook.png" />
+              <img
+                src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/icons/facebook.png" alt="" />
             </Button>
             <Button
               sx={{
@@ -212,7 +215,8 @@ const Footer = () => {
                 },
               }}
             >
-              <img src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/icons/linkedin.png" />
+              <img
+                src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/icons/linkedin.png" alt="" />
             </Button>
             <Button
               sx={{
@@ -230,7 +234,8 @@ const Footer = () => {
                 },
               }}
             >
-              <img src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/icons/twitter.png" />
+              <img
+                src="https://uiparadox.co.uk/public/templates/flynow/v2/assets/media/icons/twitter.png" alt="" />
             </Button>
           </Box>
           <Typography>©2024 QAirline All Rights Reserved.</Typography>

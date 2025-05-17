@@ -1,6 +1,5 @@
 import { Box, Typography, TextField, Button, MenuItem } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import useBookingStore from "hooks/booking-hook";
 import { Passenger } from "types/passenger";
 import { toast } from "react-toastify";
@@ -12,7 +11,7 @@ const SeatDetail = () => {
   useEffect(() => {
     setBookerEmail("");
     setBookerEmailField("");
-  }, []);
+  }, [setBookerEmail]);
 
   const { payload, getPassengers, setPassengers } = useBookingStore();
   const passengers = getPassengers();
@@ -125,11 +124,6 @@ const SeatDetail = () => {
   const handleBookerEmailField = (bookerEmail: string) => {
     setBookerEmailField(bookerEmail);
     setBookerEmail(bookerEmail);
-  };
-
-  const isValidEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email.trim());
   };
 
   return (

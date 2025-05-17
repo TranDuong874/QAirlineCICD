@@ -10,11 +10,13 @@ import { useEffect } from "react";
 import useBookingStore, { createBooking } from "hooks/booking-hook";
 import { toast } from "react-toastify";
 import { createPayment, usePaymentStore } from "hooks/payment-hook";
+
 const FlightPayment = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { getPayload } = useBookingStore();
   const { paymentOption } = usePaymentStore();
+
   interface PriceSummary {
     [className: string]: {
       count: number;
@@ -36,7 +38,7 @@ const FlightPayment = () => {
       navigate("/");
       const response = await createBooking(payload);
       console.log(response.booking.booking_id);
-      if (paymentOption == "payNow") {
+      if (paymentOption === "payNow") {
         await createPayment(response.booking.booking_id);
       }
       toast.success("Booking and payment completed successfully.");
