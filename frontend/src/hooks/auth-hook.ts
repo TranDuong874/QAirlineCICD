@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import axios from "./axios-config";
 
+const backendUrl = process.env.REACT_APP_BACKEND_URL;
 export const useAuth = () => {
   const [isLogin, setIsLogin] = useState<boolean | null>(null);
 
@@ -41,8 +42,9 @@ export const handleUserAuthentication = async (
     formData.append("client_secret", "string");
 
     // Axios POST request
+
     const response = await axios.post(
-      "http://localhost:8000/api/user/auth",
+      `${backendUrl}/api/user/auth`,
       formData,
       {
         headers: {

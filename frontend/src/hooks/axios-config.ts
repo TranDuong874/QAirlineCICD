@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // Set base URL for your API
-axios.defaults.baseURL = "http://127.0.0.1:8000";
+axios.defaults.baseURL = process.env.REACT_APP_BACKEND_URL;
 
 // Configure request interceptor
 axios.interceptors.request.use(
