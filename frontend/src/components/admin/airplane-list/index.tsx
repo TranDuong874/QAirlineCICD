@@ -7,7 +7,6 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Typography,
   Button,
   Dialog,
   DialogTitle,
@@ -17,7 +16,6 @@ import {
   FormControl,
   MenuItem,
   Select,
-  InputLabel,
 } from "@mui/material";
 import { fetchAirplane, updateAirplane } from "hooks/airplane-hook";
 import { useState, useEffect } from "react";
