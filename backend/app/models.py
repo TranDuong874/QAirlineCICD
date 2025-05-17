@@ -68,7 +68,7 @@ class Passenger(Base):
         Integer, primary_key=True, autoincrement=True
     )  # Auto-incrementing primary key
     booking_id = Column(
-        Integer, ForeignKey("booking.booking_id", ondelete="CASCADE"), nullable=False
+        String, ForeignKey("booking.booking_id", ondelete="CASCADE"), nullable=False
     )
     citizen_id = Column(String, nullable=True)
     passport_number = Column(String, nullable=True)  # Optional passport number
@@ -123,7 +123,7 @@ class Payment(Base):
     payment_method = Column(String)
     status = Column(String, default="pending")
     booking_id = Column(
-        Integer, ForeignKey("booking.booking_id", ondelete="CASCADE"), unique=True
+        String, ForeignKey("booking.booking_id", ondelete="CASCADE"), unique=True
     )
 
 
