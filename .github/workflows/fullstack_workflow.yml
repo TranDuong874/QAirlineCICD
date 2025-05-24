@@ -1,0 +1,33 @@
+name: Fullstack CI/CD Workflow 
+on:
+  push:
+    branches:
+      - main
+      - TranDuong874-cicd
+  pull_request:
+    branches:
+      - main
+      - TranDuong874-cicd
+
+jobs:
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking code
+        uses: actions/checkout@v3
+      
+      - name: Setting up Node.js version 22
+        uses: actions/setup-node@v3
+        with: 
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Building Frontend
+        run: npm run build
+        
+      - name: Testing Frontend
+        run: npm run test 
+
+      # - name: Deploying Frontend
