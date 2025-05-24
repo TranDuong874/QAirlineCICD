@@ -69,8 +69,8 @@ jobs:
         run: docker build ./backend/ -t tenebris2/qairline-repo:backend
       - name: Running Integration Tests with docker-compose.yml
         run: |
-          docker-compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
-          docker-compose -f docker-compose.yml down --volumes
+          docker compose -f docker-compose.yml up --abort-on-container-exit --exit-code-from app
+          docker compose -f docker-compose.yml down --volumes
         working-directory: backend
     
   
