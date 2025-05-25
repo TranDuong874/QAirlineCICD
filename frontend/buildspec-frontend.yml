@@ -4,6 +4,7 @@ phases:
   install:
     commands:
       - echo "Installing dependencies..."
+      - cd frontend
       - npm install
   pre_build:
     commands:
@@ -18,6 +19,6 @@ phases:
       - echo "Build completed"
 
 artifacts:
-  base-directory: build
+  base-directory: frontend/build
   files:
     - '**/*'
