@@ -6,25 +6,21 @@ phases:
       nodejs: 18
   pre_build:
     commands:
-      - echo "Current directory:"
-      - pwd
-      - echo "Listing repository contents:"
-      - ls -la
-      - echo "Changing to frontend directory..."
-      - cd frontend && pwd
-      - echo "Listing frontend directory contents:"
-      - ls -la
-      - echo "Installing dependencies..."
+      - echo "Installing frontend dependencies..."
       - cd frontend && npm install
   build:
     commands:
       - echo "Building React app..."
       - cd frontend && npm run build
-      - echo "Listing build directory contents..."
+      - echo "Listing build contents..."
       - cd frontend && ls -la build/
+      - echo "Checking index.html..."
+      - cd frontend && test -f build/index.html && echo "index.html exists" || echo "index.html missing"
   post_build:
     commands:
-      - echo "Build completed successfully"
+      - echo "Deploying to S3..."
+      - cd frontend && aws s3 sync build/ s3://YOUR-BUCKET-NAME --delete
+      - echo "Deployment completed"
 
 artifacts:
   files:
