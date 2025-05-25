@@ -6,6 +6,10 @@ phases:
       nodejs: 18
   pre_build:
     commands:
+      - echo "Node.js version:"
+      - node --version
+      - echo "NPM version:"
+      - npm --version
       - echo "Installing frontend dependencies..."
       - cd frontend && npm install
   build:
@@ -19,7 +23,7 @@ phases:
   post_build:
     commands:
       - echo "Deploying to S3..."
-      - cd frontend && aws s3 sync build/ s3://qairline-frontend --delete
+      - cd frontend && aws s3 sync build/ s3://YOUR-BUCKET-NAME --delete
       - echo "Deployment completed"
 
 artifacts:
