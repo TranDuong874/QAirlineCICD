@@ -6,18 +6,27 @@ phases:
       nodejs: 18
   pre_build:
     commands:
-      - echo Installing dependencies...
-      - npm install
+      - echo "Current directory:"
+      - pwd
+      - echo "Listing repository contents:"
+      - ls -la
+      - echo "Changing to frontend directory..."
+      - cd frontend && pwd
+      - echo "Listing frontend directory contents:"
+      - ls -la
+      - echo "Installing dependencies..."
+      - cd frontend && npm install
   build:
     commands:
-      - echo Building React app...
-      - npm run build
+      - echo "Building React app..."
+      - cd frontend && npm run build
+      - echo "Listing build directory contents..."
+      - cd frontend && ls -la build/
   post_build:
     commands:
-      - echo Build completed successfully
+      - echo "Build completed successfully"
 
 artifacts:
   files:
     - '**/*'
-  base-directory: build
-  name: react-app-build
+  base-directory: frontend/build
