@@ -6,22 +6,16 @@ phases:
       nodejs: 18
   pre_build:
     commands:
-      - echo "Current directory:"
-      - pwd
-      - echo "Listing repository contents:"
-      - ls -la
-      - echo "Changing to frontend directory..."
-      - cd frontend && pwd
-      - echo "Listing frontend directory contents:"
-      - ls -la
-      - echo "Installing dependencies..."
-      - cd frontend && npm install
+      - echo "Repository structure:"
+      - find . -name "package.json" -type f
+      - echo "Installing frontend dependencies..."
+      - npm install --prefix frontend
   build:
     commands:
       - echo "Building React app..."
-      - cd frontend && npm run build
-      - echo "Listing build directory contents..."
-      - cd frontend && ls -la build/
+      - npm run build --prefix frontend
+      - echo "Checking build output..."
+      - ls -la frontend/build/
   post_build:
     commands:
       - echo "Build completed successfully"
