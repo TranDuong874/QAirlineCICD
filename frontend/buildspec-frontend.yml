@@ -1,32 +1,18 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 18
   pre_build:
     commands:
       - echo "Node.js version:"
       - node --version
-      - echo "NPM version:"
-      - npm --version
-      - echo "Installing frontend dependencies..."
-      - cd frontend && npm install
   build:
     commands:
-      - echo "Building React app..."
-      - cd frontend && npm run build
-      - echo "Listing build contents..."
-      - cd frontend && ls -la build/
-      - echo "Checking index.html..."
-      - cd frontend && test -f build/index.html && echo "index.html exists" || echo "index.html missing"
+      - npm install
+      - npm run build
   post_build:
     commands:
-      - echo "Deploying to S3..."
-      - cd frontend && aws s3 sync build/ s3://YOUR-BUCKET-NAME --delete
-      - echo "Deployment completed"
-
+      - echo "Build completed"
 artifacts:
   files:
     - '**/*'
-  base-directory: frontend/build
+  base-directory: build
