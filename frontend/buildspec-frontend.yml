@@ -1,18 +1,29 @@
 version: 0.2
 
+env:
+  variables:
+    NODE_ENV: production
+
 phases:
   install:
     runtime-versions:
       nodejs: 18
     commands:
+      - echo Installing dependencies...
       - cd frontend
       - npm install
+
   build:
     commands:
+      - echo Building the React app...
       - npm run build
+
   post_build:
     commands:
-      - aws s3 sync build/ s3://<your-s3-bucket-name>/ --delete
+      - echo Deploying to S3...
+      - aws s3 sync build/ s3://qairline-frontend-bucket --delete
+
 artifacts:
   files:
     - '**/*'
+  base-directory: frontend/build
