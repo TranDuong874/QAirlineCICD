@@ -5,6 +5,9 @@ services:
       context: ./backend
     environment:
       - DATABASE_URL=postgresql://postgres:mysecretpassword@db:5432/airline_db
+      - MAIL_USERNAME=${{ secrets.MAIL_USERNAME }}
+      - MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }}
+      - MAIL_SERVER=${{ secrets.MAIL_SERVER }}
     depends_on:
       - db
 
@@ -13,4 +16,9 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: mysecretpassword
-      POSTGRES_DB: airline_db
+      POSTGRES_DB: 
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql

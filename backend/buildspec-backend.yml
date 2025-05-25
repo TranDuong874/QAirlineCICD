@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --no-include-email --region $AWS_REGION)
+  build:
+    commands:
+      - docker build -t qairline-backend ./backend
+      - docker tag qairline-backend:latest <your-account-id>.dkr.ecr.$AWS_REGION.amazonaws.com/qairline-backend:latest
+  post_build:
+    commands:
+      - docker push <your-account-id>.dkr.ecr.$AWS_REGION.amazonaws.com/qairline-backend:latest
+      - echo Writing image definitions...
+      - printf '[{"name":"app","imageUri":"%s"}]' <your-ECR-URI>:latest > imagedefinitions.json
+artifacts:
+  files:
+    - imagedefinitions.json
