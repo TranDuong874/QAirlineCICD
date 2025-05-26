@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region ap-southeast-1 | docker login --username AWS --password-stdin 084375550811.dkr.ecr.ap-southeast-1.amazonaws.com
-      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=latest
   build:
     commands:
       - echo Building the Docker image...
@@ -15,7 +15,7 @@ phases:
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push 084375550811.dkr.ecr.ap-southeast-1.amazonaws.com/qairline-backend:$latest
+      - docker push 084375550811.dkr.ecr.ap-southeast-1.amazonaws.com/qairline-backend:$IMAGE_TAG
 artifacts:
   files:
     - backend/prescript.sh
