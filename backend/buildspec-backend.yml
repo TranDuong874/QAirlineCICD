@@ -15,7 +15,7 @@ phases:
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push 084375550811.dkr.ecr.ap-southeast-1.amazonaws.com/qairline-backend:$IMAGE_TAG
+      - docker push 084375550811.dkr.ecr.ap-southeast-1.amazonaws.com/qairline-backend:$latest
 artifacts:
   files:
     - backend/prescript.sh
