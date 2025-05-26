@@ -15,7 +15,7 @@ echo "Pulling Docker image..."
 docker pull $REPOSITORY_URI:$IMAGE_TAG
 
 echo "Stopping and removing existing container if it exists..."
-if [ "$(docker ps -aq -f name=$CONTAINER_NAME)" ]; then
+if [ "$(docker ps -aq --filter name=^/${CONTAINER_NAME}$)" ]; then
   docker stop $CONTAINER_NAME
   docker rm $CONTAINER_NAME
 fi
