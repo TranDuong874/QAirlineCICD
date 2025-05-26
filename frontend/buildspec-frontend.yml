@@ -3,14 +3,22 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing dependencies...
+      - echo "Installing dependencies..."
       - cd frontend
       - npm install
+  pre_build:
+    commands:
+      - echo "Checking Node.js version"
+      - node --version
   build:
     commands:
-      - echo Building app...
+      - echo "Running frontend build..."
       - npm run build
   post_build:
     commands:
-      - echo Uploading to real S3 bucket...
-      - aws s3 sync build/ s3://qairline-frontend/ --delete
+      - echo "Build completed"
+
+artifacts:
+  base-directory: frontend/build
+  files:
+    - '**/*'
